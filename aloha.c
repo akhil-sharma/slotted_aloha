@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "file_writer.h"
 
@@ -35,8 +36,12 @@ double update_mean_delay (double sample)
 
 int main()
 {
+	//seed the random variable
+	srand (time(NULL));
+	
 	int state[Nodes];
 	long tx_time[Nodes];
+
 	FILE *delay_file = init_out_file("delays.txt");
 	FILE *queue_file = init_out_file("queue.txt");
 	
